@@ -1,0 +1,7 @@
+black
+fastapi
+mypy
+pylint
+python-ffmpeg
+python-ffmpeg-video-streaming
+uvicorn

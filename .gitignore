@@ -1,0 +1,5 @@
+**/__pycache__/
+out/
+www/vid
+www/lib
+*.mp4
