@@ -1,0 +1,32 @@
+@startuml
+
+[SpliceTool]
+
+[HLS_Encoder]
+folder MP4
+folder Splices {
+    [JPG]
+    [SplicedMP4]
+    [Thumbnail]
+}
+folder HLS as "HLS_Playlist (.m3u8)" {
+    [Multi-Resolution Video Segments]
+}
+
+[WebServer]
+[VideoJS]
+actor Browser
+
+'=============================
+
+[SpliceTool] <-- MP4 : 1. read
+[SpliceTool] --> Splices : 2. write
+
+[HLS_Encoder] <-- MP4 : 3. read
+[HLS_Encoder] --> HLS : 4. write
+
+Browser <--> [WebServer] : 5. visit
+[WebServer] <--> [VideoJS] : 6. use
+[VideoJS] <-- HLS : 7. read
+
+@enduml
